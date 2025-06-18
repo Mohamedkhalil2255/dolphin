@@ -1341,7 +1341,7 @@ u32 AchievementManager::MemoryPeeker(u32 address, u8* buffer, u32 num_bytes, rc_
   auto& system = Core::System::GetInstance();
   if (!(Core::IsHostThread() || Core::IsCPUThread()))
   {
-    ASSERT_MSG(ACHIEVEMENTS, false, "MemoryPeeker called from wrong thread");
+    ASSERT_MSG(ACHIEVEMENTS, true, "MemoryPeeker called from wrong thread");
     return 0;
   }
   Core::CPUThreadGuard thread_guard(system);
